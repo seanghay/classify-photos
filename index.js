@@ -93,5 +93,6 @@ for await (const file of fg.stream('./downloads/*.jpg')) {
   await queue.onSizeLessThan(queue.concurrency);
 }
 
+await queue.onIdle();
 model.dispose();
 await knex.destroy();
