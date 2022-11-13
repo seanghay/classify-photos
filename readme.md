@@ -12,8 +12,14 @@ By running this script, you'll get a folder called `model`.
 
 Before starting, you must have a folder called `./download/` which contains JPEG files.
 
-```
-npm start
+```shell
+
+# install deps
+pnpm install
+
+# start
+pnpm start
+
 ```
 
 After starting the script, you'll get a Sqlite database file called `labels.db`.
