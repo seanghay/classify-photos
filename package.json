@@ -1,0 +1,19 @@
+{
+	"name": "classify-photos",
+	"version": "0.0.0",
+	"description": "",
+	"type": "module",
+	"main": "index.js",
+	"scripts": {},
+	"author": "Seanghay Yath <seanghay.dev@gmail.com>",
+	"license": "MIT",
+	"dependencies": {
+		"@tensorflow/tfjs-node": "^4.0.0",
+		"fast-glob": "^3.2.12",
+		"p-queue": "^7.3.0",
+		"seedrandom": "^3.0.5"
+	},
+	"devDependencies": {
+		"@types/node": "^16"
+	}
+}
