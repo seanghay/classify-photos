@@ -64,6 +64,13 @@ for await (const file of fg.stream('./downloads/*.jpg')) {
   queue.add(async () => {
     printMem();
     const filename = path.parse(file).name + ".json";
+
+    const exists = await Label().select('id').where('filename', filename).first()
+    if (exists) {
+      stats++;
+      return;
+    }
+
     const outputPath = path.join("labels", filename);
     const buffer = await fs.readFile(file);
     const imageTensor = tf.node.decodeJpeg(buffer, 3);
@@ -84,8 +91,8 @@ for await (const file of fg.stream('./downloads/*.jpg')) {
     await Promise.all(labels.map(label => Label().insert({
       label,
       filename
-    }).onConflict().ignore() ))
-    
+    }).onConflict().ignore()))
+
     console.timeEnd('insert: ' + filename)
     stats++;
   })
